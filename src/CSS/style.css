@@ -80,5 +80,13 @@ img {
 
 .teclado button:disabled {
   background: #9faab5;
-  color: #798A9F;
+  color: #798a9f;
+}
+
+h1.verde {
+  color: #27ae60;
+}
+
+h1.vermelho {
+  color: #ff0000;
 }

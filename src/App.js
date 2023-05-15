@@ -33,23 +33,32 @@ function App() {
   ];
   const [palavraSecreta, setPalavraSecreta] = useState("");
   const [palavraUsuario, setPalavraUsuario] = useState([]);
-
+  const [palpites, setPalpites] = useState([]);
   const [teclas, setTeclas] = useState(
-    alfabeto.map((letra) => <button disabled>{letra.toUpperCase()}</button>)
+    alfabeto.map((letra) => (
+      <button disabled data-test="letter">
+        {letra.toUpperCase()}
+      </button>
+    ))
   );
+  const [erros, setErros] = useState(0);
 
   return (
     <div className="container">
       <Jogo
-        erros={5}
+        erros={erros}
+        setErros={setErros}
         palavraUsuario={palavraUsuario}
         setPalavraUsuario={setPalavraUsuario}
+        palavraSecreta={palavraSecreta}
         setPalavraSecreta={setPalavraSecreta}
-        alfabeto = {alfabeto}
+        alfabeto={alfabeto}
         teclas={teclas}
         setTeclas={setTeclas}
+        palpites={palpites}
+        setPalpites={setPalpites}
       />
-      <Letras teclas={teclas} setTeclas={setTeclas} />
+      <Letras teclas={teclas} />
     </div>
   );
 }
