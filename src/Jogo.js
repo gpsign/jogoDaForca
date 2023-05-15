@@ -24,7 +24,6 @@ export default function Jogo(props) {
   } = props;
 
   const [estado, setEstado] = useState("");
-
   let errosAtuais = erros;
   let palpitesAtuais = [...palpites];
   let palavraAleatoria = palavras[Math.floor(Math.random() * 187)];
@@ -104,7 +103,10 @@ export default function Jogo(props) {
   }
 
   function verificarJogo() {
-    if (acertos === palavraAleatoria.length || !palavraUsuarioAtual.includes("_ ")) {
+    if (
+      acertos === palavraAleatoria.length ||
+      !palavraUsuarioAtual.includes("_ ")
+    ) {
       setEstado("verde");
       fimDeJogo = true;
     } else if (errosAtuais >= 6) {
@@ -120,7 +122,7 @@ export default function Jogo(props) {
       <button onClick={novoJogo} data-test="choose-word">
         Escolher Palavra
       </button>
-      <h1 className={estado} data-test="word">
+      <h1 data-test="word" className={estado}>
         {palavraUsuarioAtual}
       </h1>
     </div>
