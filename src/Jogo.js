@@ -1,4 +1,4 @@
-import palavras from "./Palavras";
+import palavras from "./palavras";
 import { useState } from "react";
 import forca0 from "./assets/forca0.png";
 import forca1 from "./assets/forca1.png";
@@ -104,7 +104,7 @@ export default function Jogo(props) {
   }
 
   function verificarJogo() {
-    if (acertos === palavraAleatoria.length) {
+    if (acertos === palavraAleatoria.length || !palavraUsuarioAtual.includes("_ ")) {
       setEstado("verde");
       fimDeJogo = true;
     } else if (errosAtuais >= 6) {
