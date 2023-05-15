@@ -36,7 +36,7 @@ function App() {
   const [palpites, setPalpites] = useState([]);
   const [teclas, setTeclas] = useState(
     alfabeto.map((letra) => (
-      <button disabled data-test="letter">
+      <button key={letra} disabled data-test="letter">
         {letra.toUpperCase()}
       </button>
     ))
